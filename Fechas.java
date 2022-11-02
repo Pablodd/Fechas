@@ -2,6 +2,49 @@ import java.util.Scanner;
 
 public class Fechas {
 
+    static String Suma_horas(float h_1, float m_1, float h_2, float m_2){
+        
+
+        if(h_2>h_1){
+
+            float calculate_minutes = (((h_2*60)+(m_2))-((h_1*60)+(m_1)))/60;
+    
+            float parte_decimal = calculate_minutes % 1;
+            float parte_entera = calculate_minutes - parte_decimal;
+
+            float parte_decimal_minutos = parte_decimal*60;
+
+
+            int minutos = (int) parte_decimal_minutos;
+            int horas = (int) parte_entera;
+
+            
+
+            String diferencia_horas = horas + ":" + minutos;
+
+            return diferencia_horas;
+
+        }else{
+
+            float calculate_minutes = ((((h_2+12)*60)+(m_2))-((h_1*60)+(m_1)))/60;
+
+            float parte_decimal = calculate_minutes % 1;
+            float parte_entera = calculate_minutes - parte_decimal;
+
+            float parte_decimal_minutos = parte_decimal*60;
+
+
+            int minutos = (int) parte_decimal_minutos;
+            int horas = (int) parte_entera;
+
+            String diferencia_horas = horas + ":" + minutos;
+
+            return diferencia_horas;
+
+        }
+
+    }
+
     public static void main(String[] args) {
         Scanner myObj = new Scanner(System.in);
         System.out.println("Introduce fecha solo de 00 a 12, separa los horarios con -.");
@@ -42,15 +85,7 @@ public class Fechas {
                 
             }else{
 
-                float calculate_minutes = (((hora_2*60)+(minute_2))-((hora_1*60)+(minute_1)))/60;
-
-                float parte_decimal = calculate_minutes % 1;
-                float parte_entera = calculate_minutes - parte_decimal;
-
-                int minutos = (int) parte_decimal;
-                int horas = (int) parte_entera;
-
-                System.out.print("Hay una franja de: " + horas + ":"+ minutos);
+                System.out.print("Hay una franja de: " +Suma_horas(hora_1, minute_1, hora_2, minute_2));
                 
             }
 
@@ -80,18 +115,7 @@ public class Fechas {
                 
             }else{
 
-                float calculate_minutes = ((((hora_2+12)*60)+(minute_2))-((hora_1*60)+(minute_1)))/60;
-
-                float parte_decimal = calculate_minutes % 1;
-                float parte_entera = calculate_minutes - parte_decimal;
-
-                float parte_decimal_minutos = parte_decimal*60;
-
-
-                int minutos = (int) parte_decimal_minutos;
-                int horas = (int) parte_entera;
-
-                System.out.print("Hay una franja de: " + horas + ":"+ minutos);
+                System.out.print("Hay una franja de: " +Suma_horas(hora_1, minute_1, hora_2, minute_2));
                 
             }
             
@@ -100,9 +124,7 @@ public class Fechas {
             System.out.println("No podemos calcular la hora");
 
            }
-            
-
-
+ 
         }else if(franja_1.contains("pm")){
 
             if(franja_2.contains("am")){
@@ -131,15 +153,7 @@ public class Fechas {
                     
                 }else{
     
-                    float calculate_minutes = ((((hora_2+12)*60)+(minute_2))-((hora_1*60)+(minute_1)))/60;
-    
-                    float parte_decimal = calculate_minutes % 1;
-                    float parte_entera = calculate_minutes - parte_decimal;
-    
-                    int minutos = (int) parte_decimal;
-                    int horas = (int) parte_entera;
-    
-                    System.out.print("Hay una franja de: " + horas + ":"+ minutos);
+                    System.out.print("Hay una franja de: " +Suma_horas(hora_1, minute_1, hora_2, minute_2));
                     
                 }
     
@@ -169,18 +183,7 @@ public class Fechas {
                     
                 }else{
     
-                    float calculate_minutes = ((((hora_2)*60)+(minute_2))-((hora_1*60)+(minute_1)))/60;
-    
-                    float parte_decimal = calculate_minutes % 1;
-                    float parte_entera = calculate_minutes - parte_decimal;
-    
-                    float parte_decimal_minutos = parte_decimal*60;
-    
-    
-                    int minutos = (int) parte_decimal_minutos;
-                    int horas = (int) parte_entera;
-    
-                    System.out.print("Hay una franja de: " + horas + ":"+ minutos);
+                    System.out.print("Hay una franja de: " +Suma_horas(hora_1, minute_1, hora_2, minute_2));
                     
                 }
                 
