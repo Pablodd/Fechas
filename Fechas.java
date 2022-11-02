@@ -131,7 +131,7 @@ public class Fechas {
                     
                 }else{
     
-                    float calculate_minutes = (((hora_2*60)+(minute_2))-((hora_1*60)+(minute_1)))/60;
+                    float calculate_minutes = ((((hora_2+12)*60)+(minute_2))-((hora_1*60)+(minute_1)))/60;
     
                     float parte_decimal = calculate_minutes % 1;
                     float parte_entera = calculate_minutes - parte_decimal;
