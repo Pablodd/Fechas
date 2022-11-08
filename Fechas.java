@@ -2,24 +2,21 @@ import java.util.Scanner;
 
 public class Fechas {
 
-    static public float hora_1;
-    static public float minute_1;
-    static public float hora_2;
-    static public float minute_2;
-    static public float calculate_minutes;
-    static public float incognita;
+    static public float hora_1, minute_1, hora_2, minute_2, calculate_minutes, incognita, parte_decimal, parte_entera, parte_decimal_minutos;
+
+    static public String hour_1_am,hour_2_am;
 
     static String franjas(String franja_1, String franja_2){
 
         if(franja_1.contains("am")){
-            String hour_1_am = franja_1.replace("am", "");
+            hour_1_am = franja_1.replace("am", "");
             String[] hour_minute_1 = hour_1_am.split(":");
 
             hora_1 = Float.parseFloat(hour_minute_1[0]);
             minute_1 = Float.parseFloat(hour_minute_1[1]);
 
         }else if(franja_1.contains("pm")){
-            String hour_1_am = franja_1.replace("pm", "");
+            hour_1_am = franja_1.replace("pm", "");
             String[] hour_minute_1 = hour_1_am.split(":");
 
             hora_1 = Float.parseFloat(hour_minute_1[0]);
@@ -30,14 +27,14 @@ public class Fechas {
         }
 
         if(franja_2.contains("am")){
-            String hour_2_am = franja_2.replace("am", "");
+            hour_2_am = franja_2.replace("am", "");
             String[] hour_minute_2 = hour_2_am.split(":");
 
             hora_2 = Float.parseFloat(hour_minute_2[0]);
             minute_2 = Float.parseFloat(hour_minute_2[1]);
 
         }else if(franja_2.contains("pm")){
-            String hour_2_am = franja_2.replace("pm", "");
+            hour_2_am = franja_2.replace("pm", "");
             String[] hour_minute_2 = hour_2_am.split(":");
 
             hora_2 = Float.parseFloat(hour_minute_2[0]);
@@ -74,12 +71,12 @@ public class Fechas {
             incognita = h_2;
 
         }
-        float calculate_minutes = (((incognita*60)+(m_2))-((h_1*60)+(m_1)))/60;
+        calculate_minutes = (((incognita*60)+(m_2))-((h_1*60)+(m_1)))/60;
     
-        float parte_decimal = calculate_minutes % 1;
-        float parte_entera = calculate_minutes - parte_decimal;
+        parte_decimal = calculate_minutes % 1;
+        parte_entera = calculate_minutes - parte_decimal;
 
-        float parte_decimal_minutos = parte_decimal*60;
+        parte_decimal_minutos = parte_decimal*60;
 
         int minutos = (int) parte_decimal_minutos;
         int horas = (int) parte_entera;
