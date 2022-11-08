@@ -7,8 +7,7 @@ public class Fechas {
     static public String hour_1_time,hour_2_time;
 
     static String franjas(String franja_1, String franja_2){
-
-        
+ 
         if(franja_1.contains("am")){
             hour_1_time = franja_1.replace("am", "");
 
